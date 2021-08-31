@@ -84,6 +84,7 @@ setInterval(() => {
 }, 1000);
 
 //Loading Page
+loadWeather();
 function loadWeather() {
   navigator.geolocation.getCurrentPosition((position) => {
     let { latitude, longitude } = position.coords;
@@ -92,7 +93,7 @@ function loadWeather() {
     )
       .then((response) => response.json())
       .then((data) => {
-        content.style.backgroundImage = `linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x900/?"${data.weather[0].description}')`;
+        content.style.backgroundImage = `linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1920x1080/?"${data.weather[0].description}')`;
 
         list[0].innerHTML = `Humidity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${data.main.humidity}%</span>`;
         list[1].innerHTML = `Wind Speed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${data.wind.speed}Km/h</span>`;
@@ -113,7 +114,7 @@ function loadWeather() {
   });
 }
 
-loadWeather();
+
 
 //Search
 searchBtn.addEventListener("click", () => {
