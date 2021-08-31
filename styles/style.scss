@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;500;700;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background: rgb(32, 32, 32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+#weather-container {
+  width: clamp(300px, 65vw, 650px);
+  height: 500px;
+  background: linear-gradient(45deg, rgba(145, 0, 255,1), rgb(48, 0, 87) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: "Lato", sans-serif;
+  color: whitesmoke;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+
+  .inner-container {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+
+  .hamburger {
+      height: 20px;
+      width: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: absolute;
+      right: 2%;
+      top: 5%;
+      cursor: pointer;
+      z-index: 2;
+      
+
+      &:hover > .bar:nth-child(2) {
+          width: 24px;
+      }
+
+      .bar {
+        width: 24px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+        
+        
+       
+    }
+
+    .bar:nth-child(2){
+        width: 18px;
+        transition: 150ms ease-in-out;
+        
+        
+
+    }
+      
+  }
+    
+    .data {
+      h1 {
+        font-size: 16px;
+        font-weight: 300;
+      }
+    }
+
+    .status {
+      font-size: 28px;
+     transition: 250ms ease-in-out;
+    }
+
+    .temp {
+      font-size: clamp(120px, 20vw, 180px );
+      font-weight: 800;
+      transition: 250ms ease-in-out;
+      cursor: pointer;
+
+      span {
+        font-family: "Raleway", sans-serif;
+      }
+    }
+
+    .location {
+      font-size: 18px;
+      font-weight: 300;
+      transition: 250ms ease-in-out;
+    }
+  }
+
+  .side-bar {
+      height: 100%;
+      width: 50%;
+      background: linear-gradient(56deg, rgba(0, 0, 0, 0.376), rgba(0, 0, 0, 0.507) 100%);
+      backdrop-filter: blur(4px);
+      position: absolute;
+      right: -100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+        transition: 350ms ease-in-out;
+        box-shadow: -9px 4px 5px -8px rgba(0,0,0,0.75);
+
+     
+
+     ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        height: 50%;
+        margin: auto auto;
+        width: 80%;
+        
+
+        li {
+            list-style: none;
+            font-size: 14px;
+            transition: 550ms ease-in-out;
+            opacity: 0;
+        }
+       
+     }
+     
+  }
+
+  .search {
+      position: absolute;
+      left: 2%;
+      top: 3%;
+      display: flex;
+      flex-direction: row-reverse;
+
+      input {
+          outline: none;
+          border: none;
+          background: linear-gradient(to right, rgba(255, 255, 255, 0.507), rgba(255, 255, 255, 0.5) 100%);
+          border-bottom-right-radius: 25px;
+          border-top-right-radius: 25px;
+          width: 120px;
+          &::placeholder {
+              color: white;
+              font-weight: 300;
+          }
+         
+      }
+      i {
+          width: 30px;
+          font-size: 22px;
+          background: linear-gradient(to right, rgba(255, 255, 255, 0.507), rgba(255, 255, 255, 0.5) 100%);
+          color: white;
+          padding: 4px;
+          border-top-left-radius: 25px;
+          border-bottom-left-radius: 25px;
+          cursor: pointer;
+          transition: 450ms ease;
+
+          &:hover {
+              opacity: .7;
+          }
+      }
+
+
+  }
+
+  input, select, textarea{
+    color: white;
+    font-weight: 700;
+}
+}
+
+@media only screen and (max-width: 660px){
+
+  #weather-container {
+    height: 600px;
+  }
+    input {
+        width: 60px !important;
+    }
+}

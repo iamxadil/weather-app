@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;500;700;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background: #202020;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#weather-container {
+  width: clamp(300px, 65vw, 650px);
+  height: 500px;
+  background: linear-gradient(45deg, #9100ff, #300057 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-family: "Lato", sans-serif;
+  color: whitesmoke;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+}
+
+#weather-container .inner-container {
+  height: 90%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+}
+
+#weather-container .inner-container .hamburger {
+  height: 20px;
+  width: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  position: absolute;
+  right: 2%;
+  top: 5%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#weather-container .inner-container .hamburger:hover > .bar:nth-child(2) {
+  width: 24px;
+}
+
+#weather-container .inner-container .hamburger .bar {
+  width: 24px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+#weather-container .inner-container .hamburger .bar:nth-child(2) {
+  width: 18px;
+  -webkit-transition: 150ms ease-in-out;
+  transition: 150ms ease-in-out;
+}
+
+#weather-container .inner-container .data h1 {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+#weather-container .inner-container .status {
+  font-size: 28px;
+  -webkit-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+}
+
+#weather-container .inner-container .temp {
+  font-size: clamp(120px, 20vw, 180px);
+  font-weight: 800;
+  -webkit-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+  cursor: pointer;
+}
+
+#weather-container .inner-container .temp span {
+  font-family: "Raleway", sans-serif;
+}
+
+#weather-container .inner-container .location {
+  font-size: 18px;
+  font-weight: 300;
+  -webkit-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+}
+
+#weather-container .side-bar {
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(56deg, rgba(0, 0, 0, 0.376), rgba(0, 0, 0, 0.507) 100%);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  position: absolute;
+  right: -100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 350ms ease-in-out;
+  transition: 350ms ease-in-out;
+  -webkit-box-shadow: -9px 4px 5px -8px rgba(0, 0, 0, 0.75);
+          box-shadow: -9px 4px 5px -8px rgba(0, 0, 0, 0.75);
+}
+
+#weather-container .side-bar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 50%;
+  margin: auto auto;
+  width: 80%;
+}
+
+#weather-container .side-bar ul li {
+  list-style: none;
+  font-size: 14px;
+  -webkit-transition: 550ms ease-in-out;
+  transition: 550ms ease-in-out;
+  opacity: 0;
+}
+
+#weather-container .search {
+  position: absolute;
+  left: 2%;
+  top: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+#weather-container .search input {
+  outline: none;
+  border: none;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.507)), to(rgba(255, 255, 255, 0.5)));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.507), rgba(255, 255, 255, 0.5) 100%);
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+  width: 120px;
+}
+
+#weather-container .search input::-webkit-input-placeholder {
+  color: white;
+  font-weight: 300;
+}
+
+#weather-container .search input:-ms-input-placeholder {
+  color: white;
+  font-weight: 300;
+}
+
+#weather-container .search input::-ms-input-placeholder {
+  color: white;
+  font-weight: 300;
+}
+
+#weather-container .search input::placeholder {
+  color: white;
+  font-weight: 300;
+}
+
+#weather-container .search i {
+  width: 30px;
+  font-size: 22px;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.507)), to(rgba(255, 255, 255, 0.5)));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.507), rgba(255, 255, 255, 0.5) 100%);
+  color: white;
+  padding: 4px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  cursor: pointer;
+  -webkit-transition: 450ms ease;
+  transition: 450ms ease;
+}
+
+#weather-container .search i:hover {
+  opacity: .7;
+}
+
+#weather-container input, #weather-container select, #weather-container textarea {
+  color: white;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 660px) {
+  #weather-container {
+    height: 600px;
+  }
+  input {
+    width: 60px !important;
+  }
+}
+/*# sourceMappingURL=style.css.map */

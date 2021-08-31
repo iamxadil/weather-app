@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="weather.js" defer></script>
+    <title>Weather</title>
+  </head>
+  <body>
+    <!----Main Container-->
+
+    <div id="weather-container">
+
+
+      <!---Inner Content-->
+      <div class="inner-container">
+        <div class="hamburger">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="data">
+          <h1 class="clock"></h1>
+          <h1 class="date"></h1>
+        </div>
+        <h1 class="status">Cloudy</h1>
+        <h1 class="temp">37<span class="degree">℃</span></h1>
+        <h1 class="location">Duhok, Iraq</h1>
+      </div>
+
+      <!-----Side Bar-->
+      <div class="side-bar">
+          <ul>
+              <li>Humidity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="humidity"></span></li>
+              <li>Wind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wind">16</span></li>
+              <li>Weathery&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="weathery">16</span></li>
+          </ul>
+      </div>
+
+      <!-----Search-->
+      <div class="search">
+          <input type="text" placeholder="Search">
+        <i class="uil uil-search-alt btn"></i>
+      </div>
+    </div>
+  </body>
+</html>
