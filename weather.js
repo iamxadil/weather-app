@@ -14,7 +14,6 @@ const key = `4cecd5fbd2292d0dae99f84a2ae8dbf9`;
 
 //Variable and Arrays
 isRight = true;
-isOn = true;
 const info = Array.from(list);
 const details = [temp, loc, status];
 const days = [
@@ -61,28 +60,6 @@ hamburger.addEventListener("click", () => {
   }
 });
 
-//Setting Time
-
-setInterval(() => {
-  //Setting Up Some Stuff
-
-  let time = new Date();
-  let hours = time.getHours();
-  let minutes = time.getMinutes();
-  let seconds = time.getSeconds();
-  let day = time.getDay();
-  let mDay = time.getDate();
-  let month = time.getMonth();
-  let AmPm = hours >= 12 ? "PM" : "AM";
-  let hrFormat = hours >= 13 ? hours % 12 : hours;
-  let hr = hrFormat < 10 ? "0" + " " + hrFormat : hrFormat;
-  let min = minutes < 10 ? "0" + " " + minutes : minutes;
-
-  //Displaying
-  clock.innerHTML = `${hr} : ${min} : ${seconds}  ${AmPm}`;
-  date.innerHTML = `${days[day]}, ${mDay} ${months[month]}`;
-}, 1000);
-
 //Loading Page
 loadWeather();
 function loadWeather() {
@@ -114,7 +91,27 @@ function loadWeather() {
   });
 }
 
+//Setting Time
 
+setInterval(() => {
+  //Setting Up Some Stuff
+
+  let time = new Date();
+  let hours = time.getHours();
+  let minutes = time.getMinutes();
+  let seconds = time.getSeconds();
+  let day = time.getDay();
+  let mDay = time.getDate();
+  let month = time.getMonth();
+  let AmPm = hours >= 12 ? "PM" : "AM";
+  let hrFormat = hours >= 13 ? hours % 12 : hours;
+  let hr = hrFormat < 10 ? "0" + " " + hrFormat : hrFormat;
+  let min = minutes < 10 ? "0" + " " + minutes : minutes;
+
+  //Displaying
+  clock.innerHTML = `${hr} : ${min} : ${seconds}  ${AmPm}`;
+  date.innerHTML = `${days[day]}, ${months[month]} ${mDay}`;
+}, 1000);
 
 //Search
 searchBtn.addEventListener("click", () => {
@@ -124,8 +121,12 @@ searchBtn.addEventListener("click", () => {
       `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=${key}`
     );
     const res = await fetching.json();
-    content.style.backgroundImage = `linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x900/?"${res.weather[0].description}')`;
 
+    if (input.value == "") {
+      alert("Field Must Not Be Empty!");
+    }
+
+    content.style.backgroundImage = `linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x900/?"${res.weather[0].description}')`;
     details.forEach((e) => {
       e.style.opacity = "0";
     });
@@ -146,10 +147,6 @@ searchBtn.addEventListener("click", () => {
       });
     }, 550);
   }
-  window.addEventListener("keyup", (e) => {
-    if (e.key == "Enter") {
-      getWeather();
-    }
-  });
+
   getWeather();
 });
